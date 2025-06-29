@@ -28,6 +28,7 @@ jobs:
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
         script: |
           export HOST=${{ secrets.DB_HOST }}
           export USER=${{ secrets.DB_USER }}
