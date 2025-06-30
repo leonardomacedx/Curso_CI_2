@@ -30,19 +30,11 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          echo "✅ Conectado à EC2. Iniciando script de deploy..."
-          echo "Diretório atual: $(pwd)"
-          echo "Executando exports..."
-    
           export HOST=${{ secrets.DB_HOST }}
           export USER=${{ secrets.DB_USER }}
           export PASSWORD=${{ secrets.DB_PASSWORD }}
           export DBNAME=${{ secrets.DB_NAME }}
           export DBPORT=${{ secrets.DB_PORT }}
           export PORT=8000
-          
-          echo "🚀 Tentando executar o programa 'main'..."
           chmod +x main
           nohup ./main > nohup.out 2> nohup.err < /dev/null &
-          
-          echo "✅ Comando 'nohup' executado. O processo deve estar rodando em background."
