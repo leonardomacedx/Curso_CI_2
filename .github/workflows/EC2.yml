@@ -30,12 +30,9 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          set -e # Falha o script se qualquer comando der erro
-      
           echo "✅ Conectado à EC2. Iniciando script de deploy..."
           echo "Diretório atual: $(pwd)"
-          echo "Listando arquivos:"
-          ls -la
+          echo "Executando exports..."
     
           export HOST=${{ secrets.DB_HOST }}
           export USER=${{ secrets.DB_USER }}
